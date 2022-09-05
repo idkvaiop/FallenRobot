@@ -3,7 +3,7 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from FallenRobot import OWNER_ID
+from FallenRobot import OWNER_ID, START_IMG
 from FallenRobot import OWNER_USERNAME as uWu
 from FallenRobot import SUPPORT_CHAT, pbot
 from FallenRobot.utils.errors import capture_err
