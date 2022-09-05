@@ -3,10 +3,7 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from FallenRobot import OWNER_ID as owner_id
-from FallenRobot import OWNER_USERNAME as owner_usn
-from FallenRobot import SUPPORT_CHAT as log
-from FallenRobot import pbot as Client
+from FallenRobot import pbot, OWNER_ID, START_IMG, SUPPORT_CHAT, OWNER_USERNAME as uWu
 from FallenRobot.utils.errors import capture_err
 
 
@@ -24,7 +21,7 @@ def content(msg: Message) -> [None, str]:
         return None
 
 
-@Client.on_message(filters.command("bug"))
+@pbot.on_message(filters.command("bug"))
 @capture_err
 async def bug(_, msg: Message):
     if msg.chat.username:
@@ -40,24 +37,22 @@ async def bug(_, msg: Message):
     datetimes_fmt = "%d-%m-%Y"
     datetimes = datetime.utcnow().strftime(datetimes_fmt)
 
-    thumb = "https://telegra.ph/file/40eb1ed850cdea274693e.jpg"
-
     bug_report = f"""
-**#ʙᴜɢ : ** **@{owner_usn}**
+**#ʙᴜɢ :** @{uWu}
 
-**ʀᴇᴩᴏʀᴛᴇᴅ ʙʏ : ** **{mention}**
-**ᴜsᴇʀ ɪᴅ : ** **{user_id}**
-**ᴄʜᴀᴛ : ** **{chat_username}**
+**ʀᴇᴩᴏʀᴛᴇᴅ ʙʏ :** {mention}
+**ᴜsᴇʀ ɪᴅ :** {user_id}
+**ᴄʜᴀᴛ : {chat_username}
 
-**ʙᴜɢ : ** **{bugs}**
+**ʙᴜɢ :** {bugs}
 
-**ᴇᴠᴇɴᴛ sᴛᴀᴍᴩ : ** **{datetimes}**"""
+**ᴇᴠᴇɴᴛ sᴛᴀᴍᴩ :** {datetimes}"""
 
     if msg.chat.type == "private":
         await msg.reply_text("<b>» ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴏɴʟʏ ғᴏʀ ɢʀᴏᴜᴩs.</b>")
         return
 
-    if user_id == owner_id:
+    if user_id == OWNER_ID:
         if bugs:
             await msg.reply_text(
                 "<b>» ᴀʀᴇ ʏᴏᴜ ᴄᴏᴍᴇᴅʏ ᴍᴇ 🤣, ʏᴏᴜ'ʀᴇ ᴛʜᴇ ᴏᴡɴᴇʀ ᴏғ ᴛʜᴇ ʙᴏᴛ.</b>",
@@ -65,7 +60,7 @@ async def bug(_, msg: Message):
             return
         else:
             await msg.reply_text("ᴄʜᴜᴍᴛɪʏᴀ ᴏᴡɴᴇʀ!")
-    elif user_id != owner_id:
+    elif user_id != OWNER_ID:
         if bugs:
             await msg.reply_text(
                 f"<b>ʙᴜɢ ʀᴇᴩᴏʀᴛ : {bugs}</b>\n\n"
@@ -74,8 +69,8 @@ async def bug(_, msg: Message):
                     [[InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data=f"close_reply")]]
                 ),
             )
-            await Client.send_photo(
-                log,
+            await pbot.send_photo(
+                SUPPORT_CHAT,
                 photo=thumb,
                 caption=f"{bug_report}",
                 reply_markup=InlineKeyboardMarkup(
@@ -95,17 +90,14 @@ async def bug(_, msg: Message):
             )
 
 
-@Client.on_callback_query(filters.regex("close_reply"))
+@pbot.on_callback_query(filters.regex("close_reply"))
 async def close_reply(msg, CallbackQuery):
     await CallbackQuery.message.delete()
 
 
-@Client.on_callback_query(filters.regex("close_send_photo"))
+@pbot.on_callback_query(filters.regex("close_send_photo"))
 async def close_send_photo(_, CallbackQuery):
-    is_Admin = await Client.get_chat_member(
-        CallbackQuery.message.chat.id, CallbackQuery.from_user.id
-    )
-    if not is_Admin.can_delete_messages:
+    if CallbackQuery.from_user.id != OWNER_ID:
         return await CallbackQuery.answer(
             "ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ᴄʟᴏsᴇ ᴛʜɪs.", show_alert=True
         )
