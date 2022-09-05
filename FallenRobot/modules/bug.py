@@ -73,7 +73,7 @@ async def bug(_, msg: Message):
             )
             await pbot.send_photo(
                 SUPPORT_CHAT,
-                photo=thumb,
+                photo=START_IMG,
                 caption=f"{bug_report}",
                 reply_markup=InlineKeyboardMarkup(
                     [
