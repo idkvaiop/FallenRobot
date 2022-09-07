@@ -67,7 +67,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "{} is back online!",
                 "{} is finally here!",
                 "Welcome back! {}",
-                "Where is {}?\nIn the chat!",
+                "{} is finally in the chat!",
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
@@ -142,8 +142,9 @@ def check_afk(update, context, user_id, fst_name, userc_id):
 
 __help__ = """
 *Away from group*
- ❍ /afk <reason>*:* mark yourself as AFK(away from keyboard).
- ❍ brb <reason>*:* same as the afk command - but not a command.
+ • /afk <reason>*:* mark yourself as AFK(away from keyboard).
+ • brb <reason>*:* same as the afk command - but not a command.
+
 When marked as AFK, any mentions will be replied to with a message to say you're not available!
 """
 
@@ -159,7 +160,7 @@ dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
 dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
 
-__mod_name__ = "Aꜰᴋ​"
+__mod_name__ = "AFK"
 __command_list__ = ["afk"]
 __handlers__ = [
     (AFK_HANDLER, AFK_GROUP),
