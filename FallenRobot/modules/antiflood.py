@@ -405,13 +405,15 @@ __help__ = """
 will result in restricting that user.
  This will mute users if they send more than 10 messages in a row, bots are ignored.
 
- ❍ /flood*:* Get the current flood control setting
-• *Admins only:*
- ❍ /setflood <int/'no'/'off'>*:* enables or disables flood control
+ • /flood*:* Get the current flood control setting
+ *Admins only:*
+ • /setflood <int/'no'/'off'>*:* enables or disables flood control
  *Example:* `/setflood 10`
- ❍ /setfloodmode <ban/kick/mute/tban/tmute> <value>*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
+ • /setfloodmode <ban/kick/mute/tban/tmute> <value>*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
+
+
 • *Note:*
- • Value must be filled for tban and tmute!!
+• Value must be filled for tban and tmute!!
  It can be:
  `5m` = 5 minutes
  `6h` = 6 hours
@@ -419,7 +421,7 @@ will result in restricting that user.
  `1w` = 1 week
  """
 
-__mod_name__ = "Aɴᴛɪ-Fʟᴏᴏᴅ"
+__mod_name__ = "Anti Flood"
 
 FLOOD_BAN_HANDLER = MessageHandler(
     Filters.all & ~Filters.status_update & Filters.group, check_flood
