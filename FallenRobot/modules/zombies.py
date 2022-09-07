@@ -104,4 +104,4 @@ __help__ = """
 """
 
 
-__mod_name__ = "Zᴏᴍʙɪᴇ"
+__mod_name__ = "Zombies"
