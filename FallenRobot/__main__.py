@@ -121,8 +121,7 @@ DONATE_STRING = """Hello,
 Firstly thanks for thinking to donate for my hardwork !
 Helping/ Donation is not always financial... You can help in many other ways like promoting our bot in more and more chats.
 
-You can contact [Akhil 🇮🇳](tg://user?id={2102783671}) for more information !
-"""
+You can contact [Akhil 🇮🇳](tg://user?id={2102783671}) for more information !"""
 
 IMPORTED = {}
 MIGRATEABLE = []
