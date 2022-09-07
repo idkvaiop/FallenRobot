@@ -116,6 +116,7 @@ HELP_STRINGS = f"""
 • /start : Umm... You have already did it !
 • /donate : Support my creator. 
 • /help  : Check the commands available.
+"""
   
 DONATE_STRING = """Hello, Firstly thanks for thinking to donate for my hardwork !\n
 Helping/ Donation is not always financial... You can help in many other ways like\n
