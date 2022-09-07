@@ -16,11 +16,11 @@ async def handwrite(_, message: Message):
         API = f"https://api.sdbots.tk/write?text={text}"
         req = requests.get(API).url
         caption = f"""
-Successfully Written Text 💘
+Successfully Written Text 
 
-✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-🥀 **Requested by :** {message.from_user.mention}
-❄ **Link :** `{req}`
+• **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
+• **Requested by :** {message.from_user.mention}
+• **Link :** `{req}`
 """
         await m.delete()
         await fallen.send_photo(
@@ -28,7 +28,7 @@ Successfully Written Text 💘
             photo=req,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
+                [[InlineKeyboardButton("Telegraph", url=f"{req}")]]
             ),
         )
     else:
@@ -39,11 +39,11 @@ Successfully Written Text 💘
         API = f"https://api.sdbots.tk/write?text={lol}"
         req = requests.get(API).url
         caption = f"""
-Successfully Written Text 💘
+Successfully Written Text 
 
-✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-🥀 **Requested by :** {message.from_user.mention}
-❄ **Link :** `{req}`
+• **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
+• **Requested by :** {message.from_user.mention}
+• **Link :** `{req}`
 """
         await m.delete()
         await fallen.send_photo(
@@ -51,16 +51,16 @@ Successfully Written Text 💘
             photo=req,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
+                [[InlineKeyboardButton("Telegraph", url=f"{req}")]]
             ),
         )
 
 
-__mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
+__mod_name__ = "Write Tool"
 
 __help__ = """
 
  Writes the given text on white page with a pen 🖊
 
-❍ /write <text> *:* Writes the given text.
+• /write <text> *:* Writes the given text.
  """
