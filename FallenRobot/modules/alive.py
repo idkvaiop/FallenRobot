@@ -21,7 +21,7 @@ async def awake(event):
     TEXT += f"**Creator :** [Akhil 🇮🇳](tg://user?id={2102783671})** \n\n"
     TEXT += f"**Library Version:** `{telever}` \n\n"
     TEXT += f"**Telethon Version :** `{tlhver}` \n\n"
-    TEXT += f"**Pyrogram Version :** `{pyrover}` \n━━━━━━━━━━━━━━━━━\n\n"
+    TEXT += f"**Pyrogram Version :** `{pyrover}` \n☆━━━━━━━━━━━━━━━━☆\n\n"
     BUTTON = [
         [
             Button.url("Help​", f"https://t.me/{dispatcher.bot.username}?start=help"),
