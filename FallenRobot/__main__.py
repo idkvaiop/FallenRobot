@@ -704,7 +704,7 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 2102783671 and DONATION_LINK:
             update.effective_message.reply_text(
-                f"My Developer is [Akhil 🇮🇳](t.me/{OWNER_ID})"
+                f"My Developer is [Akhil 🇮🇳](tg://user?id={OWNER_ID})"
                 f"\n\nYou can contact him for the help. ",
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
